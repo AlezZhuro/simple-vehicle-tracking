@@ -3,9 +3,7 @@ import mockData from "../data.json";
 import { VehicleItemType } from "../models/entities";
 
 export const useFetchMockData = () => {
-  const [data, setData] = useState<
-    undefined | VehicleItemType[] | VehicleItemType
-  >();
+  const [data, setData] = useState<undefined | VehicleItemType[]>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetch = (id?: number) => {
@@ -18,13 +16,13 @@ export const useFetchMockData = () => {
       }
 
       const idx = vehicles.findIndex((el) => el.id);
-      idx !== -1 && fetchCallback(vehicles[idx]);
+      idx !== -1 && fetchCallback([vehicles[idx]]);
     } catch (error) {
-      console.log("error");
+      console.log("cath error in useFetchMockData:", error);
     }
   };
 
-  const fetchCallback = (response: VehicleItemType | VehicleItemType[]) =>
+  const fetchCallback = (response: VehicleItemType[]) =>
     setTimeout(() => {
       setData(response);
       setIsLoading(false);

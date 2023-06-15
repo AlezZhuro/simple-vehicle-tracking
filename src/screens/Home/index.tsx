@@ -1,10 +1,11 @@
+import { useEffect, useState } from "react";
+import { StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Mapbox from "@rnmapbox/maps";
-import { useTranslation } from "react-i18next";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { LANG_KEY_RU, LANG_KEY_EN } from "../../constants";
-import { Screens, StackNavigationProps } from "../../navigation/screens";
+
+import { VehicleList } from "../../components";
 import { useFetchMockData } from "../../hooks/useFetchMockData";
-import { useEffect } from "react";
+import { StackNavigationProps } from "../../navigation/screens";
 
 interface HomeScreenProps {}
 
@@ -13,48 +14,43 @@ const HomeScreen: React.FC<HomeScreenProps & StackNavigationProps> = ({
 }) => {
   const { data, isLoading, fetch } = useFetchMockData();
 
-  const { t, i18n } = useTranslation();
+  const [isListMode, setIsListMode] = useState<boolean>(true);
 
-  const changeLangHandle = () => {
-    const currentLang = i18n.language;
-    if (currentLang === LANG_KEY_RU) {
-      i18n.changeLanguage(LANG_KEY_EN);
-      return;
-    }
-    i18n.changeLanguage(LANG_KEY_RU);
-  };
+  // TODO: move late to modal with settings;
 
-  const itemClickHandle = () => {
-    navigation.navigate(Screens.DETAIL);
-  };
+  //   const changeLangHandle = () => {
+  //     const currentLang = i18n.language;
+  //     if (currentLang === LANG_KEY_RU) {
+  //       i18n.changeLanguage(LANG_KEY_EN);
+  //       return;
+  //     }
+  //     i18n.changeLanguage(LANG_KEY_RU);
+  //   };
 
   useEffect(() => {
     fetch();
   }, []);
 
   return (
-    <View style={styles.screenContainer}>
-      <Text>{`${t("core.appName")}`}</Text>
-
-      <TouchableOpacity onPress={changeLangHandle}>
-        <Text>{t("buttons.changeLang")}</Text>
-      </TouchableOpacity>
-      <Mapbox.MapView style={styles.mapContainer} />
-      <TouchableOpacity onPress={itemClickHandle}>
-        <Text>Goto</Text>
-      </TouchableOpacity>
-      {isLoading && <Text>Loading</Text>}
-      {data && <Text>{JSON.stringify(data, null, 2)}</Text>}
-    </View>
+    <SafeAreaView
+      edges={["right", "left", "bottom"]}
+      style={styles.screenContainer}
+    >
+      <View style={styles.screenContainer}>
+        {!isListMode && <Mapbox.MapView style={styles.mapContainer} />}
+        {isListMode && <VehicleList list={data} />}
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  screenContainer: { flex: 1 },
+  screenContainer: {
+    flex: 1,
+  },
+  contentWrapper: {},
   mapContainer: {
-    height: 300,
-    width: 300,
-    backgroundColor: "tomato",
+    flex: 1,
   },
 });
 
