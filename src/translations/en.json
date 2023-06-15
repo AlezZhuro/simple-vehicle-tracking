@@ -1,0 +1,25 @@
+{
+    "core":{
+        "appName":"AppName",
+        "lang":"English"
+    },
+    "buttons":{
+        "back":"back",
+        "cancel": "cancel",
+        "apply": "apply",
+        "call":"call",
+        "message":"to message",
+        "changeLang":"changeLang"
+    },
+    "HomeScreen":{
+        "title":"HomeScreen"
+    },
+    "DetailScreen":{
+        "title":"DetailScreen"
+    },
+    "vehicle":{
+        "CARGO":"CARGO",
+        "PASSENGER":"PASSENGER",
+        "SPRECIAL":"SPRECIAL"
+    }
+}

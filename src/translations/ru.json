@@ -1,0 +1,25 @@
+{
+    "core":{
+        "appName":"Трекер",
+        "lang":"Русский"
+    },
+    "buttons":{
+        "back":"back",
+        "cancel": "cancel",
+        "apply": "apply",
+        "call":"call",
+        "message":"to message",
+        "changeLang":"сменить язык"
+    },
+    "HomeScreen":{
+        "title":"Главная"
+    },
+    "DetailScreen":{
+        "title":"Детали"
+    },
+    "vehicle":{
+        "CARGO":"Грузовой",
+        "PASSENGER":"Пассажирский",
+        "SPRECIAL":"Спецтранспорт"
+    }
+}
