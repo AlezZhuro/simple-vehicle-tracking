@@ -2,7 +2,7 @@
     "vehicles": [
         {
             "id": 1,
-            "category": "Грузовой",
+            "category": "CARGO",
             "coordinats": {
                 "lan": 59.9343,
                 "lat": 30.3351
@@ -12,7 +12,7 @@
         },
         {
             "id": 2,
-            "category": "Пассажирский",
+            "category": "PASSENGER",
             "coordinats": {
                 "lan": 59.7192,
                 "lat": 30.3966
@@ -22,7 +22,7 @@
         },
         {
             "id": 3,
-            "category": "Спецтранспорт",
+            "category": "SPRECIAL",
             "coordinats": {
                 "lan": 60.1401,
                 "lat": 29.9614
@@ -32,7 +32,7 @@
         },
         {
             "id": 4,
-            "category": "Грузовой",
+            "category": "CARGO",
             "coordinats": {
                 "lan": 59.7128,
                 "lat": 30.4063
@@ -42,7 +42,7 @@
         },
         {
             "id": 5,
-            "category": "Пассажирский",
+            "category": "PASSENGER",
             "coordinats": {
                 "lan": 60.0167,
                 "lat": 30.6484
@@ -52,7 +52,7 @@
         },
         {
             "id": 6,
-            "category": "Спецтранспорт",
+            "category": "SPRECIAL",
             "coordinats": {
                 "lan": 60.0211,
                 "lat": 30.6447
@@ -62,7 +62,7 @@
         },
         {
             "id": 7,
-            "category": "Грузовой",
+            "category": "CARGO",
             "coordinats": {
                 "lan": 59.7682,
                 "lat": 30.8049
@@ -72,7 +72,7 @@
         },
         {
             "id": 8,
-            "category": "Пассажирский",
+            "category": "PASSENGER",
             "coordinats": {
                 "lan": 60.0277,
                 "lat": 30.2737
@@ -82,7 +82,7 @@
         },
         {
             "id": 9,
-            "category": "Спецтранспорт",
+            "category": "SPRECIAL",
             "coordinats": {
                 "lan": 59.7567,
                 "lat": 30.5961
@@ -92,7 +92,7 @@
         },
         {
             "id": 10,
-            "category": "Грузовой",
+            "category": "CARGO",
             "coordinats": {
                 "lan": 59.7106,
                 "lat": 30.4381

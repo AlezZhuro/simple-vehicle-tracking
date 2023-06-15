@@ -1,4 +1,6 @@
-type VehicleItemType = {
+import { VehicleCategory } from "./misc";
+
+export type VehicleItemType = {
   id: number;
   category: VehicleCategoryType;
   coordinats: {
@@ -9,10 +11,4 @@ type VehicleItemType = {
   driverPhone: string;
 };
 
-type VehicleCategoryType = keyof typeof VehicleCategory;
-
-enum VehicleCategory {
-  CARGO = "CARGO",
-  PASSENGER = "PASSENGER",
-  SPRECIAL = "SPRECIAL",
-}
+export type VehicleCategoryType = keyof typeof VehicleCategory;
