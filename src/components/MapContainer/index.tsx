@@ -1,10 +1,11 @@
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import React, { FC, useEffect, useRef, useState } from "react";
 //@ts-ignorets
-import { MapView, MarkerView, Camera } from "@rnmapbox/maps";
+import { MapView, Camera } from "@rnmapbox/maps";
 
 import { VehicleItemType } from "../../models/entities";
-const Marker = require("../../assets/pinpoint.png");
+import MapMarker from "../MapMarker";
+
 
 interface MapContainerProps {
   vehicleList: VehicleItemType[] | undefined;
@@ -67,40 +68,6 @@ const MapContainer: FC<MapContainerProps> = ({ vehicleList }) => {
         ))}
       </MapView>
     </View>
-  );
-};
-
-const MapMarker = ({ coordinats, id }: VehicleItemType) => {
-  const pointId = `pointAnnotation#${id}`;
-  const coordinate = [coordinats.lat, coordinats.lan];
-
-  return (
-    <MarkerView
-      key={pointId}
-      id={pointId}
-      title="Test"
-      coordinate={coordinate}
-      allowOverlap={true}
-      style={{ width: 25, height: 25 }}
-    >
-      <TouchableOpacity
-        onPress={() => {
-          console.log("click");
-        }}
-      >
-        <Image
-          source={Marker}
-          style={{
-            flex: 1,
-            resizeMode: "contain",
-            width: 25,
-            height: 25,
-            tintColor: "red",
-            backgroundColor: "black",
-          }}
-        />
-      </TouchableOpacity>
-    </MarkerView>
   );
 };
 
