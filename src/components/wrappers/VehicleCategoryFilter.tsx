@@ -73,7 +73,7 @@ const VehicleCategoryFilter: FC<VehicleCategoryControllsProps> = ({
   }, [selectedFilterId, vehicleList]);
 
   const viewModeIcon = useMemo(
-    () => (isListMode ? ListViewIcon : MapViewIcon),
+    () => (!isListMode ? ListViewIcon : MapViewIcon),
     [isListMode]
   );
 

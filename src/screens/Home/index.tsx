@@ -1,9 +1,13 @@
+import React from "react";
 import { useCallback, useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Mapbox from "@rnmapbox/maps";
 
-import { VehicleCategoryFilter, VehicleList } from "../../components";
+import {
+  MapContainer,
+  VehicleCategoryFilter,
+  VehicleList,
+} from "../../components";
 import { useFetchMockData } from "../../hooks/useFetchMockData";
 import { StackNavigationProps } from "../../navigation/screens";
 
@@ -48,8 +52,13 @@ const HomeScreen: React.FC<HomeScreenProps & StackNavigationProps> = ({
         {({ filteredVehicles }) => {
           return (
             <View style={styles.contentWrapper}>
-              {!isListMode && <Mapbox.MapView style={styles.mapContainer} />}
-              {isListMode && <VehicleList list={filteredVehicles} />}
+              {isListMode ? (
+                <VehicleList list={filteredVehicles} />
+              ) : (
+                <MapContainer vehicleList={filteredVehicles} />
+              )}
+              {/* {!isListMode && <MapContainer vehicleList={filteredVehicles} />} */}
+              {/* {isListMode && <VehicleList list={filteredVehicles} />} */}
             </View>
           );
         }}
@@ -65,7 +74,7 @@ const styles = StyleSheet.create({
   },
   contentWrapper: {
     flex: 1,
-    paddingHorizontal: 10,
+    marginHorizontal: 10,
   },
   mapContainer: {
     flex: 1,

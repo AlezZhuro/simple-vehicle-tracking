@@ -4,8 +4,8 @@
             "id": 1,
             "category": "CARGO",
             "coordinats": {
-                "lan": 59.9343,
-                "lat": 30.3351
+                "lan": 55.651244,
+                "lat": 37.618423
             },
             "driverName": "Иван Иванов",
             "driverPhone": "+7 (XXX) XXX-XXXX"
@@ -14,8 +14,8 @@
             "id": 2,
             "category": "PASSENGER",
             "coordinats": {
-                "lan": 59.7192,
-                "lat": 30.3966
+                "lan": 59.934280,
+                "lat": 30.335099
             },
             "driverName": "Петр Петров",
             "driverPhone": "+7 (XXX) XXX-XXXX"
@@ -24,8 +24,8 @@
             "id": 3,
             "category": "SPRECIAL",
             "coordinats": {
-                "lan": 60.1401,
-                "lat": 29.9614
+                "lan": 56.838011,
+                "lat": 60.597465
             },
             "driverName": "Алексей Алексеев",
             "driverPhone": "+7 (XXX) XXX-XXXX"
@@ -34,8 +34,8 @@
             "id": 4,
             "category": "CARGO",
             "coordinats": {
-                "lan": 59.7128,
-                "lat": 30.4063
+                "lan": 55.755814,
+                "lat": 37.617635
             },
             "driverName": "Дмитрий Дмитриев",
             "driverPhone": "+7 (XXX) XXX-XXXX"
@@ -44,8 +44,8 @@
             "id": 5,
             "category": "PASSENGER",
             "coordinats": {
-                "lan": 60.0167,
-                "lat": 30.6484
+                "lan": 53.902284,
+                "lat": 27.561831
             },
             "driverName": "Анна Иванова",
             "driverPhone": "+7 (XXX) XXX-XXXX"
@@ -54,8 +54,8 @@
             "id": 6,
             "category": "SPRECIAL",
             "coordinats": {
-                "lan": 60.0211,
-                "lat": 30.6447
+                "lan": 55.041500,
+                "lat": 82.934600
             },
             "driverName": "Сергей Сергеев",
             "driverPhone": "+7 (XXX) XXX-XXXX"
@@ -64,8 +64,8 @@
             "id": 7,
             "category": "CARGO",
             "coordinats": {
-                "lan": 59.7682,
-                "lat": 30.8049
+                "lan": 51.160522,
+                "lat": 71.470356
             },
             "driverName": "Мария Петрова",
             "driverPhone": "+7 (XXX) XXX-XXXX"
@@ -74,8 +74,8 @@
             "id": 8,
             "category": "PASSENGER",
             "coordinats": {
-                "lan": 60.0277,
-                "lat": 30.2737
+                "lan": 57.153033,
+                "lat": 65.534328
             },
             "driverName": "Александр Александров",
             "driverPhone": "+7 (XXX) XXX-XXXX"
@@ -84,8 +84,8 @@
             "id": 9,
             "category": "SPRECIAL",
             "coordinats": {
-                "lan": 59.7567,
-                "lat": 30.5961
+                "lan": 45.035470,
+                "lat": 38.975313
             },
             "driverName": "Елена Еленова",
             "driverPhone": "+7 (XXX) XXX-XXXX"
@@ -94,8 +94,8 @@
             "id": 10,
             "category": "CARGO",
             "coordinats": {
-                "lan": 59.7106,
-                "lat": 30.4381
+                "lan": 43.115536,
+                "lat": 131.885485
             },
             "driverName": "Артем Артемов",
             "driverPhone": "+7 (XXX) XXX-XXXX"

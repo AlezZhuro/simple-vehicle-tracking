@@ -14,7 +14,7 @@
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
-    "@rnmapbox/maps": "^10.0.8-rc.1",
+    "@rnmapbox/maps": "rnmapbox/maps#main",
     "i18next": "^22.5.1",
     "react": "18.2.0",
     "react-i18next": "^12.3.1",
