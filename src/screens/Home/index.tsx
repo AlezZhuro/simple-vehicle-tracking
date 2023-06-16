@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Mapbox from "@rnmapbox/maps";
@@ -27,6 +27,10 @@ const HomeScreen: React.FC<HomeScreenProps & StackNavigationProps> = ({
   //     i18n.changeLanguage(LANG_KEY_RU);
   //   };
 
+  const changeModeHandler = useCallback(() => {
+    setIsListMode((prev) => !prev);
+  }, []);
+
   useEffect(() => {
     fetch();
   }, []);
@@ -36,7 +40,11 @@ const HomeScreen: React.FC<HomeScreenProps & StackNavigationProps> = ({
       edges={["right", "left", "bottom"]}
       style={styles.screenContainer}
     >
-      <VehicleCategoryFilter vehicleList={data}>
+      <VehicleCategoryFilter
+        vehicleList={data}
+        isListMode={isListMode}
+        changeModeHandler={changeModeHandler}
+      >
         {({ filteredVehicles }) => {
           return (
             <View style={styles.contentWrapper}>
@@ -53,10 +61,11 @@ const HomeScreen: React.FC<HomeScreenProps & StackNavigationProps> = ({
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
+    backgroundColor: "#ffffff",
   },
   contentWrapper: {
     flex: 1,
-    paddingHorizontal:10
+    paddingHorizontal: 10,
   },
   mapContainer: {
     flex: 1,
