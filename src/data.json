@@ -22,7 +22,7 @@
         },
         {
             "id": 3,
-            "category": "SPRECIAL",
+            "category": "SPECIAL",
             "coordinats": {
                 "lan": 56.838011,
                 "lat": 60.597465
@@ -52,7 +52,7 @@
         },
         {
             "id": 6,
-            "category": "SPRECIAL",
+            "category": "SPECIAL",
             "coordinats": {
                 "lan": 55.041500,
                 "lat": 82.934600
@@ -82,7 +82,7 @@
         },
         {
             "id": 9,
-            "category": "SPRECIAL",
+            "category": "SPECIAL",
             "coordinats": {
                 "lan": 45.035470,
                 "lat": 38.975313

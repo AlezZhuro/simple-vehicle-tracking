@@ -20,7 +20,7 @@
     "vehicle":{
         "CARGO":"CARGO",
         "PASSENGER":"PASSENGER",
-        "SPRECIAL":"SPRECIAL",
+        "SPECIAL":"SPECIAL",
         "ALL":"ALL"
     }
 }
