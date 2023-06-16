@@ -7,10 +7,7 @@ const VehicleItem: FC<{ item: VehicleItemType }> = ({ item }) => {
   return (
     <TouchableOpacity style={styles.rowContainer}>
       <Text style={[styles.id, styles.commonText]}>TC#{item.id}</Text>
-      <Text style={[styles.name, styles.commonText]}>
-        {item.driverName}
-        {item.driverName}
-      </Text>
+      <Text style={[styles.name, styles.commonText]}>{item.driverName}</Text>
       <Text style={[styles.category, styles.commonText]}>{item.category}</Text>
     </TouchableOpacity>
   );
@@ -22,6 +19,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-start",
     flexWrap: "wrap",
+    padding:4,
+    borderWidth: 1, borderColor: "black"
   },
   id: { flex: 2, flexWrap: "wrap" },
   name: { flex: 4, flexWrap: "wrap" },

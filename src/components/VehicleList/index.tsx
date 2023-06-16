@@ -18,7 +18,7 @@ const VehicleList: FC<VehicleListProps> = ({ list }) => {
       {!!list?.length && (
         <FlatList
           data={list}
-          renderItem={(item) => <VehicleListItem {...item} />}
+          renderItem={(item) => <VehicleListItem key={item.index} {...item} />}
           keyExtractor={(item) => `${item.id}`}
         />
       )}
