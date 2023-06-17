@@ -1,4 +1,7 @@
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import {
+  NativeStackNavigationProp,
+  NativeStackScreenProps,
+} from "@react-navigation/native-stack";
 
 enum Screens {
   HOME = "Home",
@@ -7,7 +10,7 @@ enum Screens {
 
 type RootStackParamList = {
   Home: undefined;
-  Detail: { id: number } | undefined;
+  Detail: { id: number } | undefined ;
 };
 
 type StackNavigation = NativeStackNavigationProp<RootStackParamList>;

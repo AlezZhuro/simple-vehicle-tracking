@@ -19,13 +19,12 @@ import { MapContainer } from "../../components";
 import { VehicleItemType } from "../../models/entities";
 import { useTranslation } from "react-i18next";
 
-type ProfileScreenRouteProp = NativeStackScreenProps<
+type DetailScreenProps = NativeStackScreenProps<
   RootStackParamList,
   Screens.DETAIL
 >;
-type DetailScreenProps = {} & ProfileScreenRouteProp & StackNavigationProps;
 
-const DetailScreen: React.FC<DetailScreenProps> = ({ route, navigation }) => {
+const DetailScreen = ({ route, navigation }: DetailScreenProps) => {
   const { data, isLoading, fetch } = useFetchMockData();
   const vehicle = data && data[0];
 
