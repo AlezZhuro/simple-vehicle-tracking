@@ -2,27 +2,34 @@ import { useState } from "react";
 import mockData from "../data.json";
 import { VehicleItemType } from "../models/entities";
 
-export const useFetchMockData = () => {
-  const [data, setData] = useState<undefined | VehicleItemType[]>();
+interface UseFetchMockDataI<T> {
+  data: T[] | undefined;
+  isLoading: boolean;
+  fetch: (id?: number) => void;
+}
+
+export function useFetchMockData<T extends VehicleItemType> (): UseFetchMockDataI<T> {
+  const [data, setData] = useState<undefined | T[]>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetch = (id?: number) => {
     try {
       setIsLoading(true);
-      const vehicles = mockData.vehicles as VehicleItemType[];
+      const vehicles = mockData.vehicles as T[];
       if (!id) {
         fetchCallback(vehicles);
         return;
       }
 
-      const idx = vehicles.findIndex((el) => el.id);
+      const idx = vehicles.findIndex((el) => el.id === id);
+
       idx !== -1 && fetchCallback([vehicles[idx]]);
     } catch (error) {
       console.log("cath error in useFetchMockData:", error);
     }
   };
 
-  const fetchCallback = (response: VehicleItemType[]) =>
+  const fetchCallback = (response: T[]) =>
     setTimeout(() => {
       setData(response);
       setIsLoading(false);
