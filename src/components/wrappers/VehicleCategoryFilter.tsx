@@ -1,7 +1,10 @@
 import React, { FC, useCallback, useMemo, useState } from "react";
 import {
+  Button as RNButton,
   FlatList,
   Image,
+  Modal,
+  Pressable,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -10,8 +13,11 @@ import {
 import { VehicleItemType } from "../../models/entities";
 import { FilterControllBtn, VehicleCategory } from "../../models/misc";
 import { useTranslation } from "react-i18next";
-import { FilterControllButton } from "..";
+
 import { defaultFilterControllsList } from "../../constants";
+
+import { List, Button, RadioButton } from "react-native-paper";
+import { CategoryFilterModal } from "../modal";
 
 const MapViewIcon = require("../../assets/map-icon.png");
 const ListViewIcon = require("../../assets/list-icon.png");
@@ -25,7 +31,7 @@ interface VehicleCategoryControllsProps {
   }) => React.ReactElement;
 }
 
-const controlsList = Object.values(VehicleCategory).reduce(
+const filtersListItems = Object.values(VehicleCategory).reduce(
   (acc, item, index) => {
     acc.push({
       id: index + 1,
@@ -46,19 +52,7 @@ const VehicleCategoryFilter: FC<VehicleCategoryControllsProps> = ({
   const { t } = useTranslation();
 
   const [selectedFilterId, setSelectedFilterId] = useState<number>(0);
-
-  const renderItem = useCallback(
-    ({ item }: { item: FilterControllBtn }) => (
-      <FilterControllButton
-        key={item.id}
-        item={item}
-        tCallback={t}
-        onPress={setSelectedFilterId}
-        isActive={selectedFilterId === item.id}
-      />
-    ),
-    [selectedFilterId]
-  );
+  const [modalVisible, setModalVisible] = useState(false);
 
   const filteredVehicles = useMemo(() => {
     if (!vehicleList?.length) {
@@ -68,7 +62,7 @@ const VehicleCategoryFilter: FC<VehicleCategoryControllsProps> = ({
       return vehicleList;
     }
     return vehicleList.filter(
-      (v) => v.category === controlsList[selectedFilterId].label
+      (v) => v.category === filtersListItems[selectedFilterId].label
     );
   }, [selectedFilterId, vehicleList]);
 
@@ -77,16 +71,26 @@ const VehicleCategoryFilter: FC<VehicleCategoryControllsProps> = ({
     [isListMode]
   );
 
+  const onCloseModal = () => {
+    setModalVisible(false);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.controllWrapper}>
-        <FlatList
-          style={styles.buttonRow}
-          data={controlsList}
-          renderItem={renderItem}
-          horizontal
-          keyExtractor={(item) => `${item.id}`}
-          extraData={selectedFilterId}
+        {modalVisible && (
+          <CategoryFilterModal
+            modalVisible={modalVisible}
+            onApply={setSelectedFilterId}
+            onClose={onCloseModal}
+            filtersListItems={filtersListItems}
+            value={selectedFilterId}
+          />
+        )}
+
+        <RNButton
+          title={t("FilterModal.title")}
+          onPress={() => setModalVisible(true)}
         />
         <TouchableOpacity style={styles.modeSwitch} onPress={changeModeHandler}>
           <View style={styles.switchBtn}>
@@ -107,7 +111,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  controllWrapper: { width: "100%", flexDirection: "row" },
+  controllWrapper: {
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
   buttonRow: { width: "85%", padding: 10 },
   modeSwitch: {
     width: "15%",
@@ -121,6 +130,48 @@ const styles = StyleSheet.create({
   icon: {
     width: "100%",
     height: "100%",
+  },
+
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
   },
 });
 

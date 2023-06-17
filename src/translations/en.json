@@ -20,8 +20,11 @@
         "title": "DetailScreen",
         "category": "category"
     },
-    "SettingScreen":{
-        "title":"Settings"
+    "SettingScreen": {
+        "title": "Settings"
+    },
+    "FilterModal": {
+        "title": "Filter"
     },
     "vehicle": {
         "CARGO": "CARGO",

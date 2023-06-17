@@ -6,22 +6,25 @@
         "langEn": "Английский"
     },
     "buttons": {
-        "back": "back",
-        "cancel": "cancel",
-        "apply": "apply",
-        "call": "call",
-        "message": "to message",
-        "changeLang": "сменить язык"
+        "back": "Назад",
+        "cancel": "Отмена",
+        "apply": "Принять",
+        "call": "Позвонить",
+        "message": "Написать",
+        "changeLang": "Сменить язык"
     },
     "HomeScreen": {
         "title": "Главная"
     },
     "DetailScreen": {
         "title": "Детали",
-        "category": "категория"
+        "category": "Категория"
     },
     "SettingScreen":{
         "title":"Настройки"
+    },
+    "FilterModal":{
+        "title":"Фильтр"
     },
     "vehicle": {
         "CARGO": "Грузовой",
