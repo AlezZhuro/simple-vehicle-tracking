@@ -1,27 +1,32 @@
 {
-    "core":{
-        "appName":"Трекер",
-        "lang":"Русский"
+    "core": {
+        "appName": "Трекер",
+        "lang":"Язык",
+        "langRu": "Русский",
+        "langEn": "Английский"
     },
-    "buttons":{
-        "back":"back",
+    "buttons": {
+        "back": "back",
         "cancel": "cancel",
         "apply": "apply",
-        "call":"call",
-        "message":"to message",
-        "changeLang":"сменить язык"
+        "call": "call",
+        "message": "to message",
+        "changeLang": "сменить язык"
     },
-    "HomeScreen":{
-        "title":"Главная"
+    "HomeScreen": {
+        "title": "Главная"
     },
-    "DetailScreen":{
-        "title":"Детали",
+    "DetailScreen": {
+        "title": "Детали",
         "category": "категория"
     },
-    "vehicle":{
-        "CARGO":"Грузовой",
-        "PASSENGER":"Пассажирский",
-        "SPECIAL":"Спецтранспорт",
-        "ALL":"ALL"
+    "SettingScreen":{
+        "title":"Настройки"
+    },
+    "vehicle": {
+        "CARGO": "Грузовой",
+        "PASSENGER": "Пассажирский",
+        "SPECIAL": "Спецтранспорт",
+        "ALL": "Все"
     }
 }

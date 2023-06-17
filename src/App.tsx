@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
-import { StyleSheet } from "react-native";
-import Mapbox from "@rnmapbox/maps";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import "react-native-gesture-handler";
+import { PaperProvider } from "react-native-paper";
+
+//@ts-ignore
+import Mapbox from "@rnmapbox/maps";
 
 import { config } from "./config/app.config";
+import AppNavigation from "./navigation";
 
 import "./config/i18n.config";
-import AppNavigation from "./navigation";
 
 function App(): JSX.Element {
   useEffect(() => {
@@ -16,9 +18,11 @@ function App(): JSX.Element {
   }, []);
 
   return (
-    <SafeAreaProvider>
-      <AppNavigation />
-    </SafeAreaProvider>
+    <PaperProvider>
+      <SafeAreaProvider>
+        <AppNavigation />
+      </SafeAreaProvider>
+    </PaperProvider>
   );
 }
 

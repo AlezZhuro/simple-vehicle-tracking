@@ -1,7 +1,9 @@
 {
     "core": {
         "appName": "AppName",
-        "lang": "English"
+        "lang": "Language",
+        "langRu": "Russian",
+        "langEn": "English"
     },
     "buttons": {
         "back": "back",
@@ -17,6 +19,9 @@
     "DetailScreen": {
         "title": "DetailScreen",
         "category": "category"
+    },
+    "SettingScreen":{
+        "title":"Settings"
     },
     "vehicle": {
         "CARGO": "CARGO",

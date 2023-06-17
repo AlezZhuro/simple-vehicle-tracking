@@ -6,11 +6,13 @@ import {
 enum Screens {
   HOME = "Home",
   DETAIL = "Detail",
+  SETTING = "Setting",
 }
 
 type RootStackParamList = {
   Home: undefined;
-  Detail: { id: number } | undefined ;
+  Setting: undefined;
+  Detail: { id: number } | undefined;
 };
 
 type StackNavigation = NativeStackNavigationProp<RootStackParamList>;

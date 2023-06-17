@@ -20,17 +20,6 @@ const HomeScreen: React.FC<HomeScreenProps & StackNavigationProps> = ({
 
   const [isListMode, setIsListMode] = useState<boolean>(true);
 
-  // TODO: move late to modal with settings;
-
-  //   const changeLangHandle = () => {
-  //     const currentLang = i18n.language;
-  //     if (currentLang === LANG_KEY_RU) {
-  //       i18n.changeLanguage(LANG_KEY_EN);
-  //       return;
-  //     }
-  //     i18n.changeLanguage(LANG_KEY_RU);
-  //   };
-
   const changeModeHandler = useCallback(() => {
     setIsListMode((prev) => !prev);
   }, []);
@@ -52,8 +41,15 @@ const HomeScreen: React.FC<HomeScreenProps & StackNavigationProps> = ({
         {({ filteredVehicles }) => {
           return (
             <View style={styles.contentWrapper}>
-              {!isListMode && <MapContainer navigation={navigation} vehicleList={filteredVehicles} />}
-              {isListMode && <VehicleList navigation={navigation} list={filteredVehicles} />}
+              {!isListMode && (
+                <MapContainer
+                  navigation={navigation}
+                  vehicleList={filteredVehicles}
+                />
+              )}
+              {isListMode && (
+                <VehicleList navigation={navigation} list={filteredVehicles} />
+              )}
             </View>
           );
         }}
