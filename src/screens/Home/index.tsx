@@ -4,6 +4,7 @@ import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import {
+  Loader,
   MapContainer,
   VehicleCategoryFilter,
   VehicleList,
@@ -41,6 +42,7 @@ const HomeScreen: React.FC<HomeScreenProps & StackNavigationProps> = ({
         {({ filteredVehicles }) => {
           return (
             <View style={styles.contentWrapper}>
+              {isLoading && <Loader />}
               {!isListMode && (
                 <MapContainer
                   navigation={navigation}

@@ -33,12 +33,15 @@ const AppNavigation = () => {
       >
         <RootStack.Group
           screenOptions={{
-            headerBackTitle: "",
             headerRight: () => <HeaderRightSetting />,
           }}
         >
           <RootStack.Screen name={Screens.HOME} component={HomeScreen} />
-          <RootStack.Screen name={Screens.DETAIL} component={DetailScreen} />
+          <RootStack.Screen
+            name={Screens.DETAIL}
+            component={DetailScreen}
+            options={{}}
+          />
         </RootStack.Group>
 
         <RootStack.Group

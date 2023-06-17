@@ -1,5 +1,6 @@
 import React, { FC, useCallback } from "react";
 import { Text, View, FlatList, StyleSheet } from "react-native";
+
 import { VehicleListItem } from "..";
 import { VehicleItemType } from "../../models/entities";
 import { Screens, StackNavigationProps } from "../../navigation/screens";
@@ -28,7 +29,13 @@ const VehicleList: FC<VehicleListProps & StackNavigationProps> = ({
       {!!list?.length && (
         <FlatList
           data={list}
-          renderItem={(item) => <VehicleListItem key={item.index} {...item} onItemPress={onItemPress} />}
+          renderItem={(item) => (
+            <VehicleListItem
+              key={item.index}
+              {...item}
+              onItemPress={onItemPress}
+            />
+          )}
           keyExtractor={(item) => `${item.id}`}
         />
       )}

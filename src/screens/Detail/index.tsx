@@ -15,9 +15,15 @@ import {
 } from "../../navigation/screens";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useFetchMockData } from "../../hooks/useFetchMockData";
-import { MapContainer } from "../../components";
+import { Loader, MapContainer } from "../../components";
 import { VehicleItemType } from "../../models/entities";
 import { useTranslation } from "react-i18next";
+import {
+  Text as CardText,
+  Button,
+  Card,
+  ActivityIndicator,
+} from "react-native-paper";
 
 type DetailScreenProps = NativeStackScreenProps<
   RootStackParamList,
@@ -43,66 +49,47 @@ const DetailScreen = ({ route, navigation }: DetailScreenProps) => {
   }, [route]);
 
   return (
-    <ScrollView style={styles.screenContainer}>
-      {vehicle && (
-        <View style={styles.contentWrapper}>
-          <View style={styles.infoBlock}>
-            <Text>
-              {t(`DetailScreen.category`)}: {t(`vehicle.${vehicle.category}`)}
-            </Text>
-            <Text>{vehicle.driverName}</Text>
-            <Text>{vehicle.driverPhone}</Text>
-          </View>
-          <View style={styles.btnBlock}>
-            <TouchableOpacity style={styles.btn} onPress={makePhoneHandle}>
-              <Text style={styles.btnText}>{t(`buttons.call`)}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.btn} onPress={sendMessageHandle}>
-              <Text style={styles.btnText}>{t(`buttons.message`)}</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.mapContainer}>
-            <MapContainer
-              vehicleList={[vehicle] as VehicleItemType[]}
-              navigation={navigation}
-              markersClickable={false}
-            />
-          </View>
-        </View>
-      )}
-    </ScrollView>
+    <View style={styles.screenContainer}>
+      <Card contentStyle={{ padding: 4 }}>
+        {isLoading && <Loader />}
+        {!isLoading && vehicle && (
+          <>
+            <Card.Title title={`#${vehicle.id}`} />
+            <Card.Content>
+              <CardText variant="titleLarge">{vehicle.driverName}</CardText>
+              <CardText variant="bodyMedium">{vehicle.driverPhone}</CardText>
+              <CardText variant="bodyMedium">
+                {t(`DetailScreen.category`)}: {t(`vehicle.${vehicle.category}`)}
+              </CardText>
+            </Card.Content>
+            <View style={styles.mapContainer}>
+              <MapContainer
+                vehicleList={[vehicle] as VehicleItemType[]}
+                navigation={navigation}
+                markersClickable={false}
+              />
+            </View>
+            <Card.Actions>
+              <Button onPress={sendMessageHandle}>
+                {t(`buttons.message`)}
+              </Button>
+              <Button onPress={makePhoneHandle}>{t(`buttons.call`)}</Button>
+            </Card.Actions>
+          </>
+        )}
+      </Card>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   screenContainer: { flex: 1, padding: 10 },
-  contentWrapper: {
-    flex: 1,
-    gap: 10,
-  },
-  infoBlock: {
-    gap: 10,
-  },
-  btnBlock: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
-  },
-  btn: {
-    width: "40%",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 10,
-    minHeight: 30,
-    backgroundColor: "#544ae8",
-  },
-  btnText: {
-    textAlign: "center",
-    fontSize: 16,
-  },
   mapContainer: {
     width: "100%",
     height: 300,
+    overflow: "hidden",
+    borderRadius: 10,
+    marginVertical: 10,
   },
 });
 
