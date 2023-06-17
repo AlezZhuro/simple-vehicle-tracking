@@ -1,21 +1,33 @@
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 //@ts-ignorets
 import { MapView, Camera } from "@rnmapbox/maps";
 
 import { VehicleItemType } from "../../models/entities";
 import MapMarker from "../MapMarker";
-
+import { Screens, StackNavigationProps } from "../../navigation/screens";
 
 interface MapContainerProps {
   vehicleList: VehicleItemType[] | undefined;
+  markersClickable?: boolean;
 }
 
-const MapContainer: FC<MapContainerProps> = ({ vehicleList }) => {
+const MapContainer: FC<MapContainerProps & StackNavigationProps> = ({
+  vehicleList,
+  navigation,
+  markersClickable = true,
+}) => {
   let _map = useRef<MapView>(null);
   const camera = useRef<Camera>(null);
 
   const [currentList, setCurrentList] = useState<VehicleItemType[]>([]);
+
+  const onItemPress = useCallback((id: number) => {
+    markersClickable &&
+      navigation.navigate(Screens.DETAIL, {
+        id: id,
+      });
+  }, []);
 
   useEffect(() => vehicleList && setCurrentList(vehicleList), [vehicleList]);
 
@@ -52,6 +64,12 @@ const MapContainer: FC<MapContainerProps> = ({ vehicleList }) => {
     fitBoundsArgs && camera.current?.fitBounds(...fitBoundsArgs);
   }, [currentList]);
 
+  useEffect(() =>{
+    camera.current && markersClickable && vehicleList && camera.current?.moveTo([
+      vehicleList[0].coordinats.lan,
+      vehicleList[0].coordinats.lat,], 200);
+  },[vehicleList, markersClickable, camera])
+
   return (
     <View style={styles.container}>
       <MapView
@@ -64,7 +82,7 @@ const MapContainer: FC<MapContainerProps> = ({ vehicleList }) => {
       >
         <Camera ref={camera} />
         {vehicleList?.map((v) => (
-          <MapMarker key={v.id} {...v} />
+          <MapMarker item={v} onItemPress={onItemPress} key={v.id} />
         ))}
       </MapView>
     </View>

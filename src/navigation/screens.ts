@@ -7,7 +7,7 @@ enum Screens {
 
 type RootStackParamList = {
   Home: undefined;
-  Detail: undefined;
+  Detail: { id: number } | undefined;
 };
 
 type StackNavigation = NativeStackNavigationProp<RootStackParamList>;

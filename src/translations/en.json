@@ -1,26 +1,27 @@
 {
-    "core":{
-        "appName":"AppName",
-        "lang":"English"
+    "core": {
+        "appName": "AppName",
+        "lang": "English"
     },
-    "buttons":{
-        "back":"back",
+    "buttons": {
+        "back": "back",
         "cancel": "cancel",
         "apply": "apply",
-        "call":"call",
-        "message":"to message",
-        "changeLang":"changeLang"
+        "call": "call",
+        "message": "to message",
+        "changeLang": "changeLang"
     },
-    "HomeScreen":{
-        "title":"HomeScreen"
+    "HomeScreen": {
+        "title": "HomeScreen"
     },
-    "DetailScreen":{
-        "title":"DetailScreen"
+    "DetailScreen": {
+        "title": "DetailScreen",
+        "category": "category"
     },
-    "vehicle":{
-        "CARGO":"CARGO",
-        "PASSENGER":"PASSENGER",
-        "SPECIAL":"SPECIAL",
-        "ALL":"ALL"
+    "vehicle": {
+        "CARGO": "CARGO",
+        "PASSENGER": "PASSENGER",
+        "SPECIAL": "SPECIAL",
+        "ALL": "ALL"
     }
 }

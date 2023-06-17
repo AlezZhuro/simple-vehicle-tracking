@@ -15,7 +15,8 @@
         "title":"Главная"
     },
     "DetailScreen":{
-        "title":"Детали"
+        "title":"Детали",
+        "category": "категория"
     },
     "vehicle":{
         "CARGO":"Грузовой",

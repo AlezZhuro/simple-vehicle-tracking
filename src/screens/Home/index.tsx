@@ -52,8 +52,8 @@ const HomeScreen: React.FC<HomeScreenProps & StackNavigationProps> = ({
         {({ filteredVehicles }) => {
           return (
             <View style={styles.contentWrapper}>
-              {!isListMode && <MapContainer vehicleList={filteredVehicles} />}
-              {isListMode && <VehicleList list={filteredVehicles} />}
+              {!isListMode && <MapContainer navigation={navigation} vehicleList={filteredVehicles} />}
+              {isListMode && <VehicleList navigation={navigation} list={filteredVehicles} />}
             </View>
           );
         }}

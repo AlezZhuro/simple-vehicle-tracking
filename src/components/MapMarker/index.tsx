@@ -7,9 +7,21 @@ import { VehicleCategory, VehicleCategoryColor } from "../../models/misc";
 
 const Marker = require("../../assets/pinpoint.png");
 
-const MapMarker = ({ coordinats, id, category }: VehicleItemType) => {
+type Props = {
+  onItemPress: (id: number) => void;
+  item: VehicleItemType;
+};
+
+const MapMarker = ({
+  item: { coordinats, id, category },
+  onItemPress,
+}: Props) => {
   const pointId = `pointAnnotation#${id}`;
   const coordinate = [coordinats.lat, coordinats.lan];
+
+  const handlePress = () => {
+    onItemPress(id);
+  };
 
   return (
     <MarkerView
@@ -20,11 +32,7 @@ const MapMarker = ({ coordinats, id, category }: VehicleItemType) => {
       allowOverlap={true}
       style={styles.marker}
     >
-      <TouchableOpacity
-        onPress={() => {
-          console.log("click");
-        }}
-      >
+      <TouchableOpacity onPress={handlePress}>
         <Image
           source={Marker}
           style={[styles.markerIcon, styles.marker, styles[category]]}
